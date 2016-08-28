@@ -300,7 +300,7 @@ public final class Parser implements Closeable {
 	 *
 	 * @return The {@link Property}. Must not be {@code null}.
 	 */
-	private Property parseValue() {
+	Property parseValue() {
 		String name = skip(Token.Type.IDENTIFIER);
 
 		Token.Type type = current.getType();
