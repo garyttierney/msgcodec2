@@ -1,0 +1,11 @@
+apply plugin: 'pmd'
+
+ext {
+    pmdVersion = '5.5.1'
+}
+
+pmd {
+    toolVersion = pmdVersion
+    ruleSetConfig = rootProject.resources.text.fromFile('etc/pmd/ruleset.xml')
+    ignoreFailures = true
+}

@@ -1,0 +1,31 @@
+group 'com.codingmates'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
+apply plugin: 'java'
+apply from: 'etc/gradle/checkstyle.gradle'
+apply from: 'etc/gradle/jacoco.gradle'
+apply from: 'etc/gradle/pmd.gradle'
+apply from: 'etc/gradle/reports.gradle'
+
+sourceCompatibility = 1.8
+
+ext {
+    guavaVersion = '19.0'
+    junitVersion = '4.11'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.google.guava', name: 'guava', version: guavaVersion
+    testCompile group: 'junit', name: 'junit', version: junitVersion
+}

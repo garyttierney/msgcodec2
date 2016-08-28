@@ -1,0 +1,5 @@
+apply plugin: 'project-report'
+apply plugin: 'build-dashboard'
+
+check.finalizedBy projectReport
+projectReport.finalizedBy buildDashboard
