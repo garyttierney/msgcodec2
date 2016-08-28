@@ -18,27 +18,27 @@ import java.util.Set;
  * @author Gary Tierney
  */
 public class CodecLoader {
-    /**
-     * Loads and returns a set of {@link Codec}s from one or more paths.
-     *
-     * @param paths One or more paths to parse {@link Codec}s from.
-     * @return A {@code Set} of parsed {@code Codec}s.
-     * @throws IOException If an error was encountered during reading.
-     */
-    public Set<Codec> load(Path... paths) throws IOException {
-        Preconditions.checkArgument(paths.length > 0, "Must specify at least 1 path");
+	/**
+	 * Loads and returns a set of {@link Codec}s from one or more paths.
+	 *
+	 * @param paths One or more paths to parse {@link Codec}s from.
+	 * @return A {@code Set} of parsed {@code Codec}s.
+	 * @throws IOException If an error was encountered during reading.
+	 */
+	public Set<Codec> load(Path... paths) throws IOException {
+		Preconditions.checkArgument(paths.length > 0, "Must specify at least 1 path");
 
-        ImmutableSet.Builder<Codec> codecs = ImmutableSet.builder();
+		ImmutableSet.Builder<Codec> codecs = ImmutableSet.builder();
 
-        for (Path path : paths) {
-            try (BufferedReader reader = Files.newBufferedReader(path)) {
-                Tokenizer tokenizer = new Tokenizer(reader);
-                Parser parser = new Parser(tokenizer);
+		for (Path path : paths) {
+			try (BufferedReader reader = Files.newBufferedReader(path)) {
+				Tokenizer tokenizer = new Tokenizer(reader);
+				Parser parser = new Parser(tokenizer);
 
-                codecs.addAll(parser.parse());
-            }
-        }
+				codecs.addAll(parser.parse());
+			}
+		}
 
-        return codecs.build();
-    }
+		return codecs.build();
+	}
 }

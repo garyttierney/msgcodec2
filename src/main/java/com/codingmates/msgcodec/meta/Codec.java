@@ -11,31 +11,31 @@ import java.util.List;
  * @author Toby Scrace
  */
 public final class Codec {
-    private final String name;
-    private final List<UnresolvedAttribute> attributes;
-    private final List<? extends Property> properties;
+	private final String name;
+	private final List<UnresolvedAttribute> attributes;
+	private final List<Property> properties;
 
-    public Codec(String name, List<UnresolvedAttribute> attributes, List<? extends Property> properties) {
-        this.name = name;
-        this.attributes = ImmutableList.copyOf(attributes);
-        this.properties = ImmutableList.copyOf(properties);
-    }
+	public Codec(String name, List<UnresolvedAttribute> attributes, List<? extends Property> properties) {
+		this.name = name;
+		this.attributes = ImmutableList.copyOf(attributes);
+		this.properties = ImmutableList.copyOf(properties);
+	}
 
-    public List<UnresolvedAttribute> attributes() {
-        return attributes;
-    }
+	public List<UnresolvedAttribute> attributes() {
+		return attributes;
+	}
 
-    public String name() {
-        return name;
-    }
+	public String name() {
+		return name;
+	}
 
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this).add("name", name).add("properties", properties).toString();
-    }
+	@Override
+	public String toString() {
+		return MoreObjects.toStringHelper(this).add("name", name).add("properties", properties).toString();
+	}
 
-    public List<? extends Property> values() {
-        return properties;
-    }
+	public List<Property> properties() {
+		return properties;
+	}
 
 }

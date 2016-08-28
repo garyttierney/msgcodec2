@@ -28,7 +28,7 @@ public final class DataProperty extends Property {
 	 * @return The {@link DataProperty}. Will never be {@code null}.
 	 */
 	public static DataProperty create(String name, Signedness signedness, DataType type,
-                                      Optional<DataTransformation> transformation, Optional<DataOrder> order) {
+									  Optional<DataTransformation> transformation, Optional<DataOrder> order) {
 		DataTransformation dataTransformation = transformation.orElse(DataTransformation.NONE);
 		DataOrder endianness = order.orElse(DataOrder.BIG);
 
@@ -65,7 +65,7 @@ public final class DataProperty extends Property {
 	 * @param order The {@link DataOrder} of the data. Must not be {@code null}.
 	 */
 	public DataProperty(String name, Signedness signedness, DataType type, DataTransformation transformation,
-                        DataOrder order) {
+						DataOrder order) {
 		super(name);
 		this.signedness = signedness;
 		this.type = type;

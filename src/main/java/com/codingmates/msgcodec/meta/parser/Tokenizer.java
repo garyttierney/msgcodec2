@@ -115,7 +115,7 @@ public final class Tokenizer implements Closeable {
 
 	/**
 	 * Tokenizes the input available to this {@link Tokenizer}.
-	 *
+	 * <p>
 	 * Note that this method will read {@link Token}s until the underlying input mechanism is exhausted. The returned
 	 * {@link ImmutableList} will contain a {@link Token} with a type of {@link Token.Type#END_OF_FILE}, which
 	 * indicates the end of the input has been reached.
